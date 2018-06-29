@@ -1,0 +1,415 @@
+---
+title: Increase in body size between instars influences metabolic rate of Tobacco
+  Hornworm (*Manduca sexta*)
+author: "Taryn Jacobs, Jessica Kipling, Carlin Landsberg"
+date: "29 June 2018"
+output:
+  pdf_document:
+    latex_engine: xelatex
+monofont: PT Mono
+mainfont: Arial
+fontsize: 11pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Abstract
+Many studies estimating the metabolic rates of various organisms are important because metabolism is linked to the numerous biological activities that occur within an organism at various hierarchical levels of organization. Metabolic rates have been found to reveal a regularity across taxa when comparing metabolic rate to other organismal properties, such as body mass. We aimed to investigate whether the trend of metabolic rate to body mass would apply at an intraspecific level. We achieved this by comparing metabolic rates and body weights between instars of *Manduca sexta* using both log-transformed data as well as whole-organism metabolism with quarter-power allometric scaling. Our results were consistent with that of other studies in that metabolic rates were increased as caterpillars reached larger instar stages. We found body size to influence metabolic rate. In addition, we observed an inverse relationship between the log-transformed data and the quarter-power allometric scaling. From our study, we conclude that the law-like nature of metabolic rate to body mass linear trend can indeed be applied to intraspecific taxa. Acknowledging that the scaling exponent for metabolic rate has different causes at different stages in development we deduce that an instar metabolic rate is initially demand- limited and scales with an exponent that declines from instar to instar. We by conclude suggesting that for reliability, future studies could include more species and more instar groups, with a particular focus on individual-level variation.
+
+**Keywords**: caterpillars, Sphingidae, Lepidoptera, ectotherm, metabolism, quarter-power allometric scaling 
+
+\newpage
+# Introduction
+The metabolism of an organism constitutes as the biochemical processes through which energy and materials are transformed to support the various life functions. Metabolic rate (MR) is described as the rate at which an organism takes up and utilizes energy and materials. Studies have focused on estimating the metabolic rates of various organisms and found it to be of fundamental importance. This is because MR is linked to the many biological activities that occur within an organism at various hierarchical levels of organization. It is thought that MR represents a holistic measure of 'the pace of life' (Glazier 2009). In addition, MR has not been observed to vary sporadically amongst organisms but instead shows highly regular relationships with other organismal properties. Despite MR in individual organisms varying in response to intrinsic and extrinsic factors there has been a regularity across taxa when comparing MR to other organismal properties, such as body mass. It is to note that here we use the term body size interchangeably with body mass.The apparent linear relationship where MR typically scales with body mass in a law-like nature has received much attention from comparative biologists. However, it is assumed that the slope of this linear relationship can vary among different taxonomic groups (Glazier 2009). The relationship has been quantified by Giloolly et al. (2001), where it is referred to as the quarter-power allometric scaling (QPAS). This describes how biological processes scale with body size, in a manner that typically sees whole scale body mass at a relationship to MR in the form of $B/M = M^{-1/4}$. Biological rates and times associated with ontogenetic growth and development, including embryonic development, tend to exhibit quarter-power scaling. Allometric models provide a baseline for understanding the structure and function of complex ecological systems, as well as a means of quantitatively linking different levels of biological organization from cells to ecosystems (Anderson-Teixeira et al. 2009). It is to be noted that this equation makes use of whole-organism or whole-animal metabolism and is not to be confused with mass-specific metabolism. Studies making use of mass-specific metabolism typically work with log-transformed data. However, it is commonly found that there is an inversely proportional relationship between this whole-organism (QPAS) scale and the mass-specific scaling (Hayes 2001).  Numerous studies have discussed and applied both concepts to depict the regularity found between metabolic rate and body mass throughout various taxa (e.g. Gillooly et al. 2001; Greenlee and Harrison 2005; and Nagy 2005). The importance of these studies is that exploring metabolic processes in various taxa can make contributions to understanding how organisms control the movement and storage of energy and materials on scales ranging from local ecosystems through to the biosphere (Gillooly et al. 2001). 
+
+Ectothermic animals are considered to be useful for scaling studies because they commonly exhibit continuous post maturational growth which results in a wide range of body masses being recorded. Additionally, the body temperature of these animals can be homeothermic in a stable environment. This is beneficial because under laboratory condition such an important factor for metabolic scaling can be controlled (Glazier 2009). 
+
+A member of the Sphingidae family (Lepidoptera), *Manduca sexta* is commonly known as the Tobacco Hornworm. It has been given this name after the distinguishable red horns possessed by the larvae.  This species is a common model organism in biological studies due to its short life cycle which varies between 30 to 50 days with 2 to 3 generations per annum. Additionally, the larvae can grow up to 70 millimetres in length, making them easy to handle during laboratory procedures. In terms of the life cycle, the larvae tend to undergo 5 instars but this number may increase if nutrient conditions are poor (Reinecke et al. 1980).
+
+The term instar refers to a developmental stage in Arthropods that occurs between each moulting (ecdysis) event until sexual maturity is reached. Differences in instars can often be seen in altered body proportions, colours, patterns, changes in number of body segments, and head width (Reinecke et al. 1980). In *M. sexta*, body mass across instars can increase up to three times between instars. However, this is dwarfed by growth that occurs during one instar phase where body mass can sometimes increase between 100 percent and up to as much as 1000 percent (Greenlee and Harrison 2005).
+
+In light of the exponential growth experienced within and in between the instars, it is no surprise that this puts pressure on the rest of the organism's system to respond in order to cope with these rapid changes. Included within these pressures is an increase in gas exchange requirement driven by the rapid growth experienced during instars (Greenlee and Harrison 2005). Greenlee and Harrison (2005) have shown that respiration abilities may play a role in instar moulting, with modification of tracheal lengths occurring to compensate for the increased requirement for oxygen that comes with an increased body size. We believe that this increased oxygen requirement acts as good evidence that the increasing body size leads to increased metabolic rate across instars of *M. sexta*.
+
+In this study we aim to investigate whether the trend of metabolic rate to body mass will apply at an intraspecific level by comparing metabolic rates and body weights between instars of *M. sexta*. We use both log-transformed data to assess mass-specific metabolic rates as well as whole-organism metabolism using the quarter-power allometric scaling (QPAS). We expect higher metabolic rates to occur at larger instar stages. Therefore, we expect the trends of this intraspecific analysis to be similar to that of the interspecific studies where there is a linear relationship between body size and metabolic rate in which body size influences metabolic rate. 
+
+# Materials and methods
+## *Description of data*
+The data were obtained from a public GitHub repository hosting a large amount of R datasets [https://github.com/vincentarelbundock/Rdatasets]. The dataset we selected was that of the metabolic rate (MR) of the tobacco hornworm, *Manduca sexta*. Individual *M. sexta* were weighed and placed into five instar stages according to their weight. Their specific metabolic rates were measured by measuring the concentration level of CO2 (ppm) emitted. The metabolic rates from this was recorded accordingly. The log body size (g) and log metabolic rate values were also included. All data analysis and visualisations were performed in RStudio version 1.1.442 (RStudio Team 2016) using the tidyverse, ggpubr and corrplot libraries. 
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(ggpubr)
+library(corrplot)
+```
+
+## *Preparation of data for statistical analyses*
+A Shapiro-Wilks normality test and a test for variance was performed and majority of the data was shown to be normally distributed. 
+
+```{r message=FALSE, warning=FALSE, results='hide'}
+ms_rate <- read_delim("ms_rate.csv", ";", 
+                      escape_double = FALSE, trim_ws = TRUE)
+
+ms_rate %>% 
+  group_by(Instar) %>% 
+  summarise(r_norm_dist = as.numeric(shapiro.test(LogMrate)[2]),
+            r_norm_var = var(LogMrate)) 
+ 
+ms_rate %>% 
+  summarise(body_norm_dist = as.numeric(shapiro.test(LogBodySize)[2]),
+            body_norm_var = var(LogBodySize))
+```
+
+However, data pertaining to the fifth instar was not normal and was thus excluded from the dataset as we could possibly extrapolate predictions for this instar stage and its correlating body weight at a later stage after statistical analyses are performed. All other assumptions for majority of statistical analyses were met and thus an analysis of variance (ANOVA), correlation, and linear regression could be performed.
+
+## *Statistical analyses*
+Firstly, we performed a single factor ANOVA on instar and metabolic rate to determine if variance among these variables exist.
+
+```{r message=FALSE, warning=FALSE, results='hide'}
+mr.aov <- aov(LogMrate ~ as.factor(Instar), data = ms_rate)
+summary(mr.aov)
+```
+
+Following this, we performed a Tukey HSD post-hoc test to determine where the variances lie. 
+
+```{r message=FALSE, warning=FALSE, results='hide'}
+TukeyHSD(mr.aov)
+```
+
+We visualised these results using a notched boxplot created using the ggplot function. Results from Tukey’s HSD post-hoc test were labeled on the graph as “a”, “b”, “c”, and “d” and if a single boxplot for an instar was significantly different from the others, it was given a unique label.
+
+```{r message=FALSE, warning=FALSE, results='hide'}
+mr_box <- ggplot(data = ms_rate, aes(x = as.factor(Instar), y = LogMrate, 
+                                     fill = as.factor(Instar))) +
+  geom_boxplot(notch = TRUE) +
+  annotate("text", x = 1, y = 0.1, label = "a") +
+  annotate("text", x = 2, y = 0.85, label = "b") +
+  annotate("text", x = 3, y = 1.5, label = "c") +
+  annotate("text", x = 4, y = 1.83, label = "d") +
+  labs(x = "Instar", y = "Metabolic rate", fill = "Instar") +
+  theme_classic()
+```
+
+Before performing a correlation, with which we could determine if a relationship exists between body size and metabolic rate, we created a subset of the data where we removed variables that would not be concluded in the proceeding correlation test. As a result, we were left with only log body size, instar, and log metabolic rate to perform the correlation on. Firstly, we performed a Shapiro-Wilks normality test looking at log body size. 
+
+```{r message=FALSE, warning=FALSE, results='hide'}
+met_sub <- ms_rate %>% 
+  select(-X1, -Computer, -BodySize, -CO2ppm, -Mrate)
+
+met_norm <- met_sub %>% 
+  gather(key = "variable") %>% 
+  group_by(variable) %>% 
+  summarise(variable_norm = as.numeric(shapiro.test(value)[2]))
+```
+
+These data violated the assumption of normality and thus a non-parametric correlation test had to be performed and it was decided that a Kendall rank correlation test was the best fitting test. We then visualised these results using a scatterplot with  a linear model ovelayed. 
+
+```{r eval=FALSE, include=TRUE, results='hide'}
+cor.test(ms_rate$LogBodySize, ms_rate$LogMrate, method = "kendall")
+```
+
+```{r message=FALSE, warning=FALSE, results='hide'}
+tau_print <- paste0("tau = ", 
+                  round(cor(x = met_sub$LogBodySize, met_sub$LogMrate, 
+                            method = "kendall"),2))
+
+plot_corr <- ggplot(data = ms_rate, aes(x = LogBodySize, y = LogMrate)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) +
+  annotate("text", x = -2.2, y = 1.7, label = tau_print) +
+  labs(x = "Body mass (g)", y = "Metabolic rate") +
+  theme_classic()
+```
+
+
+Thereafter, we used the subset of the data to perform a correlation to determine the strength of the relationship between log body size, instar stage, and log metabolic rate. These results were visualised by creating a “heatmap” with the correlation coefficients for each variable overlayed on each panel.
+
+```{r eval=FALSE, include=TRUE}
+met_sub <- ms_rate %>% 
+  select(-X1, -Computer, -BodySize, -CO2ppm, -Mrate)
+
+corr <- cor(met_sub, method = "kendall")
+corr
+
+(corrplot(corr, type = "upper",
+          tl.col = "black", addCoef.col = "grey70"))
+```
+
+Lastly, a linear regression was performed to determine if body size influences metabolic rate. This was done using a linear model and was subsequently visualised using the ggplot function. 
+
+```{r message=FALSE, warning=FALSE, results='hide'}
+met_lm <- lm(LogBodySize ~ LogMrate, data = ms_rate)
+summary(met_lm)
+
+slope <- round(met_lm$coef[2], 3)
+# p.val <- round(coefficients(summary(met_lm))[2, 4], 3) # approx 0 so...
+p.val <- 0.001
+r2 <- round(summary(met_lm)$r.squared, 3)
+
+plot_lm <- ggplot(data = ms_rate, aes(x = LogBodySize, y = LogMrate)) +
+  geom_point() +
+  annotate("text", x = -2.5, y = 1.9, label = paste0("slope == ", 
+                                                     slope, "~(min/min)"),
+           parse = TRUE, hjust = 0) +
+  annotate("text", x = -2.5, y = 1.7, label = paste0("italic(p) < ", p.val),
+           parse = TRUE, hjust = 0) +
+  annotate("text", x = -2.5, y = 1.5, label = paste0("italic(r)^2 == ", r2), 
+           parse = TRUE, hjust = 0) +
+  stat_smooth(method = "lm") +
+  labs(x = "Body mass (g)", y = "Metabolic rate") +
+  theme_classic()
+```
+
+In addition, we added a column to the dataset using the pipe and mutate function We used the formula $B/M = M^{-1/4}$ to determine the quarter-power allometric scaling (QPAS) and plotted these values against log body size. We performed a linear regression using the lm function in order to annotate the r^2^ and slope on the final plot.
+
+```{r message=FALSE, warning=FALSE, results='hide'}
+ms_rate_scale <- ms_rate %>% 
+  mutate(scale = (Mrate)^(-1/4))
+ms_rate_scale
+
+scale_lm <- lm(LogBodySize ~ scale, data = ms_rate_scale)
+summary(scale_lm)
+
+slope1 <- round(scale_lm$coef[2], 3)
+# p.val <- round(coefficients(summary(met_lm))[2, 4], 3) # approx 0 so...
+p.val <- 0.001
+r2.1 <- round(summary(scale_lm)$r.squared, 3)
+
+scale_plot_lm <- ggplot(data = ms_rate_scale, aes(x = LogBodySize, y = scale)) +
+  geom_point() +
+  annotate("text", x = -0.7, y = 2.2, label = paste0("slope == ",
+                                                     slope1, "~(min/min)"), 
+           parse = TRUE, hjust = 0) +
+  annotate("text", x = -0.7, y = 2.0, label = paste0("italic(p) < ", p.val), 
+           parse = TRUE, hjust = 0) +
+  annotate("text", x = -0.7, y = 1.8, label = paste0("italic(r)^2 == ", r2.1), 
+           parse = TRUE, hjust = 0) +
+  stat_smooth(method = "lm") +
+  labs(x = "Body mass (g)", y = "Metabolic rate^(-1/4)") +
+  theme_classic()
+```
+
+# Results
+Figure 1 suggests that metabolic rate (MR) increases as caterpillars reach larger instar stages. The one-way ANOVA shows that there is a significant effect of instar stage on metabolic rate (Pr < 2.2e-16). Because p-value < 0.05 we reject our null hypothesis to state that MR is higher at larger instar stages. Tukey’s HSD post-hoc analysis suggests that significant differences have been observed at each instar stage (p-adj = 0). Due to each instar’s significant difference from the next, as reported by Tukey’s HSD post-hoc test, differences were annotated using the letters a, b, c, and d (with each being different from each other).
+
+```{r}
+#                   Df Sum Sq Mean Sq F value Pr(>F)    
+# as.factor(Instar)   3  76.40  25.467   177.5 <2e-16 ***
+#  Residuals         252  36.16   0.143                   
+# ---
+#  Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+#  Tukey multiple comparisons of means
+#    95% family-wise confidence level
+
+# Fit: aov(formula = LogMrate ~ as.factor(Instar), data = trans_met_co2)
+
+# $`as.factor(Instar)`
+#         diff       lwr       upr p adj
+# 2-1 0.5188665 0.3081781 0.7295549     0
+# 3-1 1.0446237 0.8471220 1.2421254     0
+# 4-1 1.5881065 1.3894877 1.7867254     0
+# 5-1 2.1872647 1.9700206 2.4045087     0
+# 3-2 0.5257572 0.3555118 0.6960026     0
+# 4-2 1.0692400 0.8976999 1.2407801     0
+# 5-2 1.6683982 1.4755990 1.8611974     0
+# 4-3 0.5434828 0.3884236 0.6985420     0
+# 5-3 1.1426410 0.9643466 1.3209353     0
+# 5-4 0.5991581 0.4196271 0.7786892     0
+```
+
+
+Figure 2 shows that a strong positive relationship exists between body mass (g) and MR (p-value < 2.2e-16, tau = 0.8158754). Kendall rank correlation coefficient shows that approximately 82% of variance is explained by the relationship between body mass and metabolic rate.
+
+```{r}
+#	Kendall's rank correlation tau
+
+# data:  ms_rate$LogBodySize and ms_rate$LogMrate
+# z = 19.413, p-value < 2.2e-16
+# alternative hypothesis: true tau is not equal to 0
+# sample estimates:
+#       tau 
+# 0.8158754 
+```
+
+Figure 3 shows that a body mass (g) does indeed have a significant influence on MR (p-value < 2.2e-16, r^2^ = 0.9235). The adjusted r^2^ value shows that approximately 92% of variance is explained by the relationship where body mass influences MR.
+
+```{r}
+# Residuals:
+#      Min       1Q   Median       3Q      Max 
+# -0.53597 -0.13291 -0.00608  0.12745  0.51528 
+
+# Coefficients:
+#             Estimate Std. Error t value Pr(>|t|)    
+# (Intercept) -1.39154    0.01466  -94.92   <2e-16 ***
+# LogMrate     1.02881    0.01854   55.49   <2e-16 ***
+# ---
+# Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+# Residual standard error: 0.1967 on 254 degrees of freedom
+# Multiple R-squared:  0.9238,	Adjusted R-squared:  0.9235 
+# F-statistic:  3079 on 1 and 254 DF,  p-value: < 2.2e-16
+```
+
+Correlation coefficients in figure 4 suggests that a significantly strong, positive relationship exists between body mass (and instar stage) and MR. It can therefore be inferred that as body mass increases with progression to a new instar stage, metabolic rates are also shown to increase. 
+
+```{r}
+#             LogBodySize    Instar  LogMrate
+# LogBodySize   1.0000000 0.7033767 0.8158754
+# Instar        0.7033767 1.0000000 0.6727636
+# LogMrate      0.8158754 0.6727636 1.0000000
+```
+
+The quarter-power allometric scaling (QPAS) in figure 5 suggests that as body mass increases, MR decreases. A significantly strong relationship exists between these two variables (p-value < 2.2e-16, r^2^ = 0.8597). The r^2^ value shows that approximately 86% of variance is explained by this relationship. The slope of -1.963 suggests that the relationship is a negative one.
+
+```{r}
+# Residuals:
+#      Min       1Q   Median       3Q      Max 
+# -0.58645 -0.19324 -0.03378  0.15604  1.61403 
+
+# Coefficients:
+#             Estimate Std. Error t value Pr(>|t|)    
+# (Intercept)  0.70092    0.04492   15.60   <2e-16 ***
+# scale       -1.96258    0.04964  -39.54   <2e-16 ***
+# ---
+# Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+# Residual standard error: 0.2664 on 254 degrees of freedom
+# Multiple R-squared:  0.8602,	Adjusted R-squared:  0.8597 
+# F-statistic:  1563 on 1 and 254 DF,  p-value: < 2.2e-16
+```
+
+Our overall results suggest that strong relationships exist between body size, instar stage and MR. From our results it can also be inferred that as body size, with subsequent instar stage progression, MR increases. The linear regression of QPAS shows a negative relationship between body mass and MR (Figure 5). This observation is the inverse of the previous linear regression shown in figure 4 and this inverse relationship concurs with previous studies on this topic (Herald 1971; McNab 1999; Atansov and Dimitrov 2002; Dahlman and Callier and Nijhout 2011).
+
+# Discussion
+In this study we expressed interest in analysing body size and metabolic rates for *Manduca sexta* caterpillars. Our aim was to investigate whether the trend of metabolic rate to body mass would apply at an intraspecific level by comparing metabolic and body weights between instars of Manduca sexta. We used both log-transformed data to assess mass-specific metabolic rates as well as whole-organism metabolism by using the quarter-power allometric scaling (QPAS).
+
+Most of what we know about the regulation of growth and size comes from studies of last-instar larvae. The rationale is that in systems that grow approximately exponentially, most of the mass accumulates in the last larval instar. In *M. sexta*, for instance, about 90% of growth in mass occurs during the fifth (final) instar (Nijhout et al. 2006). The assumption has been that growth in earlier instars is just like that in the last larval instar, just scaled down (Callier and Nijhout. 2011). Moreover, it has been assumed implicitly that because most of the growth occurs in the last larval instar that variation in growth in earlier instars is unlikely to have a significant effect on growth in the final instar and on variation in final body size.
+
+These assumptions, however, may or may not be correct. Although under optimal conditions and in the laboratory *M. sexta* invariably has five larval instars; in the field and when reared on host plants that provide inadequate nutrition, *M. sexta* can have supernumerary larval instars (Diamond et al. 2010). A variable number of larval instars is actually quite common in insects, but the underlying growth kinetics that gives rise to such variation has never been studied in any detail. The predictive model of body size regulation in *M. sexta* growth (Nijhout et al. 2006) is adequate for 5th instar larvae growing under near optimal conditions, but says nothing about whether and how variation in growth of earlier instars affects the growth of the fifth larval instar, and has no information about the causes and consequences of the mechanism that control the number of larval instars.
+
+Several recent studies have documented that the relationship between mass and metabolic rate changes within and across larval instars of the Tobacco Hornworm caterpillar,*M. sexta* (Greenlee and Harrison 2005; Callier and Nijhout 2011, 2012; Sears et al. 2012). The general pattern is for the scaling relationship to level out as animals grow within the instar, with essentially no relationship between metabolic rate and mass after larvae reach the critical weight for moulting, even though larvae continue to accumulate mass during this time (Callier and Nijhout. 2011). This pattern is indicative of metabolic rate becoming limited by oxygen (O2) supply as larvae outgrow their tracheal system (Greenlee and Harrison. 2005). Furthermore, while tracheal conductance is reset in each instar at moulting to match or exceed O2 demand, mass-specific metabolic rates decrease significantly across instars (Greenlee and Harrison 2005; Callier and Nijhout 2011,2012). This could be explained by a decrease in energy demand in all cells or by changes in the relative contribution of tissues with differing demands as insects develop.
+
+The respiratory system of growing caterpillars is challenged in two distinct ways as they develop from hatchlings to fifth instars preparing for pupation. First, across instars, body sizes and tracheal lengths increase substantially. Second, within each instar, animal mass can more than double while major tracheal respiratory system structures, such as spiracles and large tracheae, are fixed in size until moulting (Greenlee and Harrison 2005). The mechanisms and consequences of growth and its regulation are of primary importance to developmental biology and physiology. Growing arthropods gain substantial mass both within and across intermoult periods (instars), so the respiratory system of developing insects must cope with tremendous increases in Carbon Dioxide (CO2) production, as well as increases in tracheal lengths that may challenge diffusive capacity (Greenlee and Harrison 2005). In our model we saw metabolic rate increase as caterpillars reached larger instar stages (Figure 1). Stastical tests showed instar stage had a significant effect on metabolic rate. Due to this significance we can assume that variation in age within an instar may contribute strongly to the variation in mass scaling of metabolic rate during ontogeny. We reported from the post-hoc analysis that significant differences in metabolic rate had been observed at each instar stage.
+
+In *M. sexta*, mass-specific tracheal system conductance decreases almost 50% on average as animals grow within each of the first four instars (Greenlee and Harrison 2005), suggesting that as animals grow, the delivery capacity of the tracheal system may not be able to keep up with their expanding oxygen demands. Thus, the increase in metabolic intensity observed across instars may result from the restoration of oxygen supplies when the major tracheae and spiracles are replaced at moult. 
+
+Early in each instar, the tracheae are convoluted and thus have built-in slack to allow extension of the tracheal tubes as the body grows. As the larval body grows, the tracheal system becomes more sparsely distributed, because the same tracheal distribution network must supply a much larger volume of tissue (Callier and Nijhout 2011). Tracheal size set at the beginning of the instar should limit respiration rates as body mass increases within instars (Greenlee and Harrison 2005), and thus we expected to see an increase in metabolic rate with increased body size. Our results showed the relationship between body mass and metabolic rate of *M. sexta* (Figure 2) to have a strong positive relationship. The Kendall rank correlation coefficient confirmed this by showing that approximately 82% of the variance can be explained by the relationship between body mass and metabolic rate. 
+
+As aforementioned, in addition to the dramatic body size increases across instars, within each instar caterpillars can increase in body mass by at least 100% and up to 1000%. (Goodman et al. 1985). This raised the question as to whether these size increases correlate with increasing challenges for oxygen delivery and thus an increase in metabolic rate to promote respiration in the growing organisms. If an insect exchanges gas by diffusion, as traditionally thought for *M. sexta*, then larger body sizes may lead to increasing problems with gas exchange due to the well-documented exponential decreases in diffusion rates with distance to the outer body surface, which increases with body size. This idea has contributed to the suggestion that atmospheric oxygen levels may be linked to insect body size (Graham et al. 1995; Dudley 1998). This is an idea not explored in our research but could possibly play role in the metabolic activities of the organisms at various sizes. 
+
+Due to the proven affects that increasing body size has on respiration through tracheal growth (Greenlee and Harrison 2005) it was no surprise that our data showed that body mass had a significant influence on metabolic rate (Figure 3). The data showed that a high proportion of variance (92%) is explained by the relationship where body mass influences metabolic rate. This is understandable as with increasing body mass, comes an increased need for oxygen to travel further through the body, as discussed and shown through tracheal length by Greenlee and Harrison (2005). 
+
+Metabolic rate is governed largely by two interacting processes: the Boltzmann factor, which describes the temperature dependence of biochemical processes; and the quarter-power allometric relation, which describes how biological rate processes scale with body size (Gillooly et al. 2005). Our overall results suggest that strong relationships exist between body size, instar stage and metabolic rate. From our results it can also be inferred that as body size increases, with subsequent instar stage progression, metabolic rates increase. The linear regression of the QPAS shows a negative relationship between body mass and metabolic rate (Figure 5). This observation is the inverse of the previous linear regression (Figure 4) and this inverse relationship concurs with previous studies on this topic (Dahlman and Herald 1971; McNab 1999; Atansov and Dimitrov 2002; Callier and Nijhout 2011). Therefore, this study serves to add to the existing databases of support for the QPAS as a reliable general scaling prediction method for metabolic rate and body size. 
+
+Size imposes constraints on metabolism that depend on whether the observed mass increase is ontogenetic or interspecific (Maino et al. 2014). In the Dynamic Energy Budget theory these constraints are reflected by changing proportions of reserve and structure, of which the relative quantities are predicted to vary in specific ways under different circumstances. The partitioning of biomass into reserve and structure predicts metabolic properties of biomass to change even when mass is (approximately) constant, and is thus a necessary abstraction to capture the metabolic scaling of diverse organisms throughout various developmental stages (Maino et al. 2014; Maino and Kearny 2013, 2015)
+
+In ectothermic animals, standard rates of metabolism are similarly measured in resting, post absorptive adults at a specific temperature, but do not include a minimal cost of endotherms. However, these conditions are not strictly met in organisms that are growing, reproducing or continuously active. The metabolic rates of larval or juvenile animals include energy costs of growth and maintenance that are notoriously difficult to analyse (Glazier 2005). Thus, this poses a limitation on our study as all intraspecific analyses of metabolic scaling that are based on an ontogenetic series of body sizes include costs of growth. Other energy costs of development may also affect ontogenetic metabolic scaling (Glazier 2005).
+
+From our findings we can deduce that the scaling exponent for metabolic rate has different causes at different stages in development. Within an instar metabolic rate is initially demand-limited and scales with an exponent that declines from instar to instar. We suggest that for reliability, future studies could include more species and more instars must be studied, with a particular focus on individual-level variation, before we can make any generalisations concerning hypothesis. In addition, the possibility that moults between larval instars are triggered by a different mechanism compared with the final metamorphic (pupal) moult warrants further studies. 
+
+# Acknowledgements
+The assignment above was produced by Carlin Landsberg, Jessica Kipling and Taryn Joy Jacobs. Collectively, we all contributed towards producing the script and discussed and agreed upon all the content. Jessica was responsible for constructing the abstract and the introduction. Carlin was responsible for the results and methodology and Taryn was responsible the discussion section. We all agree upon having an equal contribution to this assignment.
+
+
+\newpage
+# References
+Anderson-Teixeira K, Savage V, Allen A, Gillooly J. 2009. Allometry and metabolic scaling in ecology. *Encyclopedia of Life Sciences*: 1--3.
+
+Atanasov AT, Dimitrov BD. 2002. Changes of the power coefficient in the ‘metabolism-mass’ relationship in the evolutionary process of animals. *BioSystems* 66: 65--71. 
+
+Callier V, Nijhout HF. 2012. Supply-side constraints are insufficient to explain the ontogenetic scaling of metabolic rate in the tobacco hornworm, *Manduca sexta*. PLoS ONE 7(9): e45455.
+
+Callier V, Nijhout HF. 2011 Control of body size by oxygen supply reveals size-dependent and size-independent mechanisms of molting and metamorphosis. *Proceedings of the National Academy of Sciences* 108(35): 14664--9. 
+
+Dahlam DL, Herald F. 1971. Effects of the parasite, Apanteles congregatus, on respiration of tobacco hornworm, *Manduca sexta* larvae. *Comparative Biochemistry and Physiology* 40: 871--880.
+
+Diamond SE, Hawkins SD, Nijhout HF, Kingsolver JG. 2010. Evolutionary divergence of field and laboratory populations of *Manduca sexta* in response to host-plant quality.*Ecological Entomology* 35(2): 166--74.
+
+Dudley R. 1998. Atmospheric oxygen, giant Paleozoic insects and the evolution of aerial locomotor performance. *Journal of Experimental Biology* 201: 1043--1050.
+
+Gillooly JF, Allen AP, Brown JH, Elser, JJ, Martínes Del Rio C, Savage VM GB. 2005. The metabolic basis of whole-organism RNA and phosphorus content. *Proceedings of the National Academy of Sciences of the United States of America* 102: 11923--11927. 
+
+Gillooly J, Brown J, West G, Savage V, Charnov E. 2001. Effects of size and temperature on metabolic rate. *Science* 293(5538): 2248--2251.
+
+Glazier D. 2009. Activity affects intraspecific body-size scaling of metabolic rate in ectothermic animals. *Journal of Comparative Physiology* 179(7): 821--828.
+
+Goodman WG, Carlson RO, Nelson KL. 1985. Analysis of larval and pupal development in the tobacco hornworm (Lepidoptera: Sphingidae), *Manduca sexta*. *Annals of the Entomological Society of America* 78: 70--80.
+
+Graham JB, Dudley R, Aguilar NM,  Gans C. 1985 Implications of the late Palaeozoic oxygen pulse for physiology and evolution. *Nature* 375: 117--120.
+
+Greenlee K, Harrison J. 2005. Respiratory changes throughout ontogeny in the tobacco hornworm caterpillar, *Manduca sexta*. *Journal of Experimental Biology* 208(7): 1385--1392.
+
+Maino JL, Kearny MR, Nisbet RM, Kooijman SALM. 2014. Reconciling theories for metabolic scaling. *Journal of Animal Ecology* 83: 20--29.
+
+Maino JL, Kearny MR. 2013. Ontogenetic and interspecific metabolic scaling in insects. *American Naturalist* 184: 695--701.
+
+Maino JL, Kearny MR. 2015 Ontogenetic and interspecific scaling of consumption in insects. *Oikos* 124: 1564--1570.
+
+McNab BK. 1995. On the comparative ecological and evolu- tionary significance of total and mass-specific rates of metabolism. *Physiological and Biochemical Zoology* 72: 642--644. 
+
+Nagy K. 2005. Field metabolic rate and body size. *Journal of Experimental Biology* 208: 1621--1625.
+
+Nijhout HF, Davidowitz G, Roff DA. 2006. A quantitative analysis of the mechanism that controls body size in *Manduca sexta*. *Journal of Biology* 5(5): 16.
+
+Reinecke J, Buckner J, Grugel S. 1980. Life cycle of laboratory-reared tobacco hornworms, Manduca sexta, a study of development and behavior, using time-lapse cinematography. *The Biological Bulletin* 158(1): 129--140.
+
+RStudio Team (2016). RStudio: Integrated Development for R. RStudio, Inc., Boston, MA URL [http://www.rstudio.com/].
+
+Sears KE, Kerkhoff AJ, Messerman A, Itagaki H. 2012. Ontogenetic scaling of metabolism, growth and assimilation: testing metabolic scaling theory with *Manduca sexta* larvae.*Physiological and Biochemical Zoology* 85(2): 159--73.
+
+\newpage
+# Appendix
+
+```{r echo=FALSE}
+mr_box
+```
+**Fig. 1.** Notched boxplots showing the relationship between instar stage and metabolic rate of the tobacco hornworm caterpillar, *Manduca sexta*.
+
+
+```{r echo=FALSE}
+plot_corr
+```
+**Fig. 2.** Correlation showing the relationship between body mass (g) and metabolic rate of *Manduca sexta*. 
+
+
+```{r echo=FALSE, results='hide'}
+plot_lm
+```
+**Fig. 3.** Linear regression showing the influence of body mass (g) on metabolic rate of *Manduca sexta*.
+
+
+```{r echo=FALSE, results='hide'}
+met_sub <- ms_rate %>% 
+  select(-X1, -Computer, -BodySize, -CO2ppm, -Mrate)
+
+corr <- cor(met_sub, method = "kendall")
+corr
+
+(corrplot(corr, type = "upper",
+          tl.col = "black", addCoef.col = "grey70"))
+```
+
+**Fig. 4.** Correlation coefficients showing the strength of relationship between body mass (g), instar stage and metabolic rate of *Manduca sexta*. 
+
+
+```{r echo=FALSE}
+scale_plot_lm
+```
+**Fig. 5.** Linear regression of quarter-power allometric scaling (QPAS) relationship of body mass and metabolic rate
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
